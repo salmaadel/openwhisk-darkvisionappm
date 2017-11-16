@@ -218,19 +218,26 @@
                         ng-click="controller.selectImageWithTag('image_keywords', keyword.class)"
                         ng-class="{ 'hidden-tag': $index > 15 && !controller.showMoreKeywords, 'tag-clickable': controller.isVideo() }"
                         class="tag tag-keyword">{{keyword.class}} {{keyword.score | formatPercent}}%</span></li>
-                <li ng-if="controller.data.selectedSummary.image_keywords.length > 15"
+              
+         //     start
+              <li ng-if="controller.data.selectedSummary.image_size.length > 15"
                     class="entry-tag more-tag-toggle"
-                    ng-click="controller.showMoreKeywords = !controller.showMoreKeywords"><span
-                      ng-if="!controller.showMoreKeywords">and {{controller.data.selectedSummary.image_keywords.length - 15}} more...</span><span ng-if="controller.showMoreKeywords">show less</span></li>
+                    ng-click="controller.showMoreSize = !controller.showMoreSize"><span
+                      ng-if="!controller.showMoreSize">and {{controller.data.selectedSummary.image_size.length - 15}} more...</span><span ng-if="controller.showMoreSize">show less</span></li>
               </ul>
             </div>
+
+        //  end 
 
             <div ng-if="controller.isVideo() && controller.data.summary.audio.analysis.nlu.keywords">
               <h4>Audio Keywords</h4>
               <ul class="entry-taglist">
                 <li ng-repeat="keyword in controller.data.summary.audio.analysis.nlu.keywords" class="entry-tag"><span
                   ng-class="{ 'hidden-tag': $index > 15 && !controller.showMoreAudio }" class="tag tag-keyword">{{keyword.text}} {{keyword.relevance | formatPercent}}%</span></li>
-                <li ng-if="controller.data.summary.audio.analysis.nlu.keywords.length > 15" class="entry-tag more-tag-toggle" ng-click="controller.showMoreAudio = !controller.showMoreAudio"><span
+              
+              
+              
+              <li ng-if="controller.data.summary.audio.analysis.nlu.keywords.length > 15" class="entry-tag more-tag-toggle" ng-click="controller.showMoreAudio = !controller.showMoreAudio"><span
                     ng-if="!controller.showMoreAudio">and {{controller.data.summary.audio.analysis.nlu.keywords.length - 15}} more...</span><span ng-if="controller.showMoreAudio">show less</span></li>
               </ul>
             </div>

@@ -20,6 +20,7 @@
     controller.showMoreKeywords = false;
     controller.showMoreEntities = false;
     controller.showMoreConcepts = false;
+    controller.showMoreSize = false;
 
     controller.data = {
       video: null,
@@ -67,6 +68,16 @@
               return image.analysis.image_keywords.find(function(keyword) {
                 return keyword.class === tagName;
               });
+              
+              
+              
+               case 'image_size':
+              return image.analysis.image_size.find(function(size) {
+                return size.class === tagName;
+              });
+              
+              
+              
           }
         }
         return false;
